@@ -9,7 +9,7 @@ class CNNEncoder(nn.Module):
         for param in resnet.parameters():
             param.requires_grad_(False)
 
-        old_shape = self.net.fc.in_features
+        old_shape = resnet.fc.in_features
         layers = list(resnet.children())[:-1] # Remove the fully connected last layer
         self.net = nn.Sequential(*layers)
         # Use embedding and batch norm instead of fully connected layer
