@@ -69,8 +69,7 @@ def main():
     batch_size = 256
     img_size = 256
     img_transform = transforms.Compose([
-        transforms.Resize(img_size),
-        # transforms.RandomCrop(224),
+        transforms.Resize((img_size, img_size)),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize((0.485, 0.456, 0.406), # normalize image for pre-trained resnet that is used
